@@ -78,7 +78,7 @@ let g:deoplete#enable_at_startup=1
 
 filetype plugin indent on    " required
 syntax on
-set omnifunc=syntaxcomplete#Complete
+" set omnifunc=syntaxcomplete#Complete
 
 colorscheme dracula
 
@@ -108,9 +108,30 @@ let g:terraform_fmt_on_save=1
 let g:terraform_align=1
 let g:terraform_remap_spacebar=1
 
+" let g:SuperTabClosePreviewOnPopupClose = 1
+" let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabCrMapping=1
+
+" SuperTab settings
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabCompletionContexts = ['s:ContextText','s:ContextDiscover']
+let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+let g:SuperTabContextTextOmniPrecedence = ['&completefunc', '&omnifunc']
+let g:SuperTabMappingBackward = "<s-tab>"
+let g:SuperTabMappingTabLiteral = "<c-tab>"
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabCrMapping = 1
 let g:SuperTabClosePreviewOnPopupClose = 1
-let g:SuperTabDefaultCompletionType = "<c-n>"
-let g:SuperTabCrMapping=1
+autocmd FileType * if &omnifunc != '' | call SuperTabChain(&omnifunc, "<c-p>") | endif
+
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function() abort
+    return deoplete#close_popup()
+endfunction
+
+" " deoplete tab-complete
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " resize windows when vim is resized
 autocmd VimResized * wincmd =
