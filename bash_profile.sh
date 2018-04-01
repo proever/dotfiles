@@ -19,6 +19,7 @@ export FZF_COMPLETION_TRIGGER='ff'
 
 eval "$(thefuck --alias)"
 
+alias f="fuck"
 alias r="source ~/.bash_profile"
 alias ls="exa"
 alias exa="exa -1"
@@ -36,4 +37,7 @@ if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 fi
+
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
