@@ -20,6 +20,7 @@ Plugin 'andymass/vim-matchup'
 Plugin 'tpope/vim-sensible'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-vinegar'
 
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-speeddating'
@@ -98,8 +99,8 @@ set autoindent
 set number
 set wildmode=longest,list
 
-set splitbelow
-set splitright
+" set splitbelow
+" set splitright
 
 set laststatus=2
 
@@ -151,10 +152,25 @@ endif
 let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
 
 " tex stuff
+au BufNewFile,BufRead *.tex set filetype=tex
 let g:syntastic_tex_chktex_quiet_messages = { "regex": ["Vertical rules", "put a space"] }
 let g:matchup_override_vimtex = 1
 let g:matchup_matchparen_deferred = 1
 
 set cul
 set lz
+
+" git mappings
+nnoremap ,gs :Gstatus<CR>
+nnoremap ,gd :Gdiff<CR>
+nnoremap ,gb :Gblame<CR>
+nnoremap ,gL :exe ':!cd ' . expand('%:p:h') . '; git la'<CR>
+nnoremap ,gl :exe ':!cd ' . expand('%:p:h') . '; git las'<CR>
+nnoremap ,gh :Silent Glog<CR>
+nnoremap ,gH :Silent Glog<CR>:set nofoldenable<CR>
+nnoremap ,gr :Gread<CR>
+nnoremap ,gw :Gwrite<CR>
+nnoremap ,gp :Git push<CR>
+nnoremap ,g- :Silent Git stash<CR>:e<CR>
+nnoremap ,g+ :Silent Git stash pop<CR>:e<CR>
 
