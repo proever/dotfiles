@@ -64,6 +64,7 @@ Plugin 'lervag/vimtex'
 
 Plugin 'ervandew/supertab'
 
+Plugin 'rhysd/vim-grammarous'
 " Colors
 Plugin 'dracula/vim'
 
