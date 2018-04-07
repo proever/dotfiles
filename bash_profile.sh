@@ -21,9 +21,8 @@ eval "$(thefuck --alias)"
 
 alias f="fuck"
 alias r="source ~/.bash_profile"
-alias ls="exa"
-alias exa="exa -1"
 alias mkdir="mkdir -pv"
+alias ls="ls -lhF"
 alias fp="ls | fpp"
 alias fpf="fc -s | tail -n +2 | fpp"
 
