@@ -109,7 +109,7 @@ set number
 set wildmode=longest,list
 
 " set splitbelow
-" set splitright
+set splitright
 
 set laststatus=2
 
@@ -153,7 +153,7 @@ nnoremap <C-H> <C-W><C-H>
 map :s5 :source % \| AirlineRefresh \| nohlsearch
 
 " vv to generate new vertical split
-nnoremap <silent> vv <C-w>v
+nnoremap <silent> vv <C-w>v<C-l>
 
 nmap <esc><esc> :noh<return>
 
