@@ -36,6 +36,8 @@ Plugin 'tmux-plugins/vim-tmux'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 
+Plugin 'edkolev/promptline.vim'
+
 Plugin 'Townk/vim-autoclose'
 
 Plugin 'svermeulen/vim-easyclip'
@@ -62,9 +64,15 @@ Plugin 'juliosueiras/vim-terraform-completion'
 
 Plugin 'lervag/vimtex'
 
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
 Plugin 'ervandew/supertab'
 
 Plugin 'rhysd/vim-grammarous'
+
+Plugin 'plytophogy/vim-virtualenv'
+
 " Colors
 Plugin 'dracula/vim'
 
