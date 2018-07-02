@@ -37,6 +37,13 @@ if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
-
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+export PYENV_ROOT="$HOME/.pyenv"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export NVM_DIR=~/.nvm
+source /usr/local/opt/nvm/nvm.sh
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
