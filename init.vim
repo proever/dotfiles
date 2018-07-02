@@ -91,8 +91,6 @@ syntax on
 
 colorscheme dracula
 
-let g:tmuxline_preset='powerline'
-
 set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor-blinkon1,r-cr:hor20-Cursor/lCursor
 
 hi MatchParen cterm=italic gui=italic
@@ -151,6 +149,15 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 map :s5 :source % \| AirlineRefresh \| nohlsearch
+
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
+
+let g:tmuxline_preset = 'full'
+
+" let g:tmuxline_powerline_separators = 0
 
 " vv to generate new vertical split
 nnoremap <silent> vv <C-w>v<C-l>
