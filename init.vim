@@ -79,8 +79,8 @@ Plugin 'dracula/vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
-let g:python_host_prog = '/Users/proever/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '/Users/proever/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = expand('~') . '/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = expand('~') . '/.pyenv/versions/neovim3/bin/python'
 
 " Use deoplete.
 let g:deoplete#enable_at_startup=1

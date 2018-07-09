@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/proever/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -80,6 +80,9 @@ fi
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 source /usr/local/opt/nvm/nvm.sh
+
+# set path to include personal bin in your .zshrc or .bashrc or whatever
+export PATH="${HOME}/Developer/bin:${PATH}"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
