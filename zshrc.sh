@@ -136,4 +136,4 @@ export PATH="${HOME}/Developer/bin:${PATH}"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval $(thefuck --alias)
-
+typeset -aU path
