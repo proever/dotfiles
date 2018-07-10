@@ -94,7 +94,20 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 fpath=(/usr/local/share/zsh-completions $fpath)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function go-to-directory {
+    cd
+    fzf-cd-widget
+}
+
+zle -N go-to-directory
+
+if [ -f ~/.fzf.zsh ]; then
+    export FZF_DEFAULT_OPTS=--inline-info
+    source ~/.fzf.zsh
+    bindkey '\C-f' fzf-cd-widget
+    bindkey '\C-g' go-to-directory
+fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
