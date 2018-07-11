@@ -31,8 +31,10 @@ call plug#end()
 
 colorscheme dracula
 
-" key mappings
+" preferences
+set splitright
 
+" key mappings
 " move around windows with ctrl +hjkl
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
