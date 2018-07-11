@@ -2,12 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/proever/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="dracula"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random cause zsh load theme from this variable instead of
@@ -69,8 +69,45 @@ alias f="fuck"
 alias r="source ~/.zsh_profile"
 alias mkdir="mkdir -pv"
 
+bindkey -M menuselect '^[[Z' reverse-menu-complete
+
+bindkey -v
+
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+
+precmd() { RPROMPT="" }
+function zle-line-init zle-keymap-select {
+   VIM_PROMPT_NORMAL="%{$fg_bold[magenta]%} [%  NORMAL ]% %{$reset_color%}"
+   VIM_PROMPT_INSERT="%{$fg_bold[green]%} [%  INSERT ]% %{$reset_color%}"
+   RPS1="${${KEYMAP/vicmd/$VIM_PROMPT_NORMAL}/(main|viins)/$VIM_PROMPT_INSERT} $EPS1"
+   zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+export KEYTIMEOUT=1
+
 fpath=(/usr/local/share/zsh-completions $fpath)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+function go-to-directory {
+    cd
+    fzf-cd-widget
+}
+
+zle -N go-to-directory
+
+if [ -f ~/.fzf.zsh ]; then
+    export FZF_DEFAULT_OPTS=--inline-info
+    source ~/.fzf.zsh
+    bindkey '\C-f' fzf-cd-widget
+    bindkey '\C-g' go-to-directory
+fi
 
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
@@ -80,6 +117,9 @@ fi
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 source /usr/local/opt/nvm/nvm.sh
+
+# set path to include personal bin in your .zshrc or .bashrc or whatever
+export PATH="${HOME}/Developer/bin:${PATH}"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -109,4 +149,4 @@ source /usr/local/opt/nvm/nvm.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval $(thefuck --alias)
-
+typeset -aU path
