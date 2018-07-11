@@ -11,4 +11,4 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 mkdir Developer
 git clone https://github.com/proever/dotfiles.git Developer
 ln -s ~/Developer/dotfiles/zshrc.sh ~/.zshrc
-ln -s ~/Developer/dotfiles/zshenv.sh
+ln -s ~/Developer/dotfiles/zshenv.sh ~/.zshenv
